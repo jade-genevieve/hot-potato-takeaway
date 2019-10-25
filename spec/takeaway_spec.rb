@@ -14,12 +14,25 @@ describe Takeaway do
     $stdout = StringIO.new
     subject.view_menu
     $stdout.rewind
-    expect($stdout.gets.chomp).to eq(subject.menu[0])
+    expect($stdout.gets.chomp).to eq("1 - Jacket Potato: 2.0")
   end
 
   # As a customer
   # So that I can order the meal I want
   # I would like to be able to select some number of several available dishes
+
+  it "outputs the dishes with numbers" do
+    expect(subject.menu[0]).to include(:dish => 1)
+  end
+
+  it "can store an order of a number of dishes" do
+    subject.view_menu
+    subject.order(1, 2, 3, 4)
+    # expect(subject.order(1)).to eq(subject.orders[0])
+  end
+
+  it "can control which dishes are available" do
+  end
 
   # As a customer
   # So that I can verify that my order is correct

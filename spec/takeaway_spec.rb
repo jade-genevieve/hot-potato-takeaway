@@ -1,7 +1,7 @@
 require "takeaway"
 
 describe Takeaway do
-  it { is_expected.to be_an_instance of Takeaway }
+  it { is_expected.to be_an_instance_of Takeaway }
 
   # As a customer
   # So that I can check if I want to order something

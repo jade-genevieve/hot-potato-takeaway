@@ -10,6 +10,13 @@ describe Takeaway do
     expect(subject.menu.length).to be > 0
   end
 
+  it "can output the dishes with prices" do
+    $stdout = StringIO.new
+    subject.view_menu
+    $stdout.rewind
+    expect($stdout.gets.chomp).to eq(subject.menu[0])
+  end
+
   # As a customer
   # So that I can order the meal I want
   # I would like to be able to select some number of several available dishes

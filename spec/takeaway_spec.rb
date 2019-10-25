@@ -6,6 +6,9 @@ describe Takeaway do
   # As a customer
   # So that I can check if I want to order something
   # I would like to see a list of dishes with prices
+  it "has a list of dishes" do
+    expect(subject.menu.length).to be > 0
+  end
 
   # As a customer
   # So that I can order the meal I want

@@ -1,5 +1,5 @@
 class Takeaway
-  attr_reader :menu
+  attr_reader :menu, :orders
 
   def initialize
     @menu = [
@@ -7,7 +7,7 @@ class Takeaway
       { dish: 2, name: "Baked Beans", price: 1.10 },
       { dish: 3, name: "Chilli Beans", price: 1.10 },
     ]
-    @orders
+    @orders = []
   end
 
   def view_menu
@@ -15,11 +15,13 @@ class Takeaway
   end
 
   def order(*dishes)
-    dishes.each { |dish|
-      puts dish.to_i
-    }
+    order = Order.new(*dishes)
+    # dishes.each { |dish|
+    #   puts dish.to_i
+    # }
+    @orders.push(order)
   end
 end
 
-t = Takeaway.new
-t.order("1", "2", "3")
+# t = Takeaway.new
+# t.order("1", "2", "3")

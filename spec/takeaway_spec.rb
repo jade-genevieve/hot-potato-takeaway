@@ -1,6 +1,8 @@
 require "takeaway"
 
 describe Takeaway do
+  let(:order) { double :order }
+
   it { is_expected.to be_an_instance_of Takeaway }
 
   # As a customer
@@ -26,9 +28,8 @@ describe Takeaway do
   end
 
   it "can store an order of a number of dishes" do
-    subject.view_menu
-    subject.order(1, 2, 3, 4)
-    # expect(subject.order(1)).to eq(subject.orders[0])
+    subject.order("1")
+    expect(subject.orders[0]).to be_an_instance_of(Order)
   end
 
   it "can control which dishes are available" do

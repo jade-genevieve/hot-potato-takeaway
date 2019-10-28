@@ -33,6 +33,7 @@ describe Takeaway do
   end
 
   it "can control which dishes are available" do
+    expect(subject.order("1")).to change { subject.menu[0].total }.from(10).to(9)
   end
 
   # As a customer
